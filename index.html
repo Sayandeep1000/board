@@ -14,22 +14,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <!-- Cache bust the CSS so it actually loads! -->
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=17">
 </head>
 <body>
   
-  <!-- One Win Per Day Top Bar -->
-  <div class="top-win-bar">
-    <div class="win-header">
-      <span class="win-title">🔥 ONE WIN PER DAY</span>
-      <span id="streak-counter" class="win-streak">Streak: 0</span>
-    </div>
-    <div class="win-input-container">
-      <input type="text" id="daily-win-input" placeholder="Enter your critical win for today...">
-      <button id="save-win-btn">LOG WIN</button>
-      <button id="view-history-btn" title="View History">🕒</button>
-    </div>
-  </div>
+
 
   <div class="app-container">
     <header class="header">
@@ -83,14 +72,7 @@
     <button id="export-btn" title="Export as Wallpaper">📷</button>
   </div>
 
-  <!-- Win History Modal -->
-  <div id="win-history-modal" class="modal-overlay">
-    <div class="modal-content analytics-content">
-      <span class="close-btn" id="close-history-btn">&times;</span>
-      <h2>Victory Vault</h2>
-      <div id="win-history" class="win-history"></div>
-    </div>
-  </div>
+
 
   <!-- Analytics Modal -->
   <div id="analytics-modal" class="modal-overlay">
@@ -125,7 +107,7 @@
 
   <!-- html2canvas for exporting -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script type="module" src="app.js?v=14"></script>
+  <script type="module" src="app.js?v=15"></script>
   <script>
     // Register Service Worker for PWA
     if ('serviceWorker' in navigator) {

@@ -27,7 +27,7 @@ let activeBlockId = null;
 let isEditing = false;
 let activeIsAnti = false;
 let currentUser = null;
-let dailyWins = [];
+
 
 // The layout order of the 9 blocks
 const blockOrder = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
@@ -95,7 +95,7 @@ async function loadDataFromCloud() {
       const savedData = docSnap.data();
       currentData = savedData.boardData || mandalaData;
       currentAntiData = savedData.antiBoardData || antiMandalaData;
-      dailyWins = savedData.dailyWins || [];
+      
       
       // Auto-merge logic for both boards
       const blockI = currentData["I"];
@@ -158,7 +158,7 @@ async function saveDataToCloud() {
     await setDoc(docRef, { 
       boardData: currentData,
       antiBoardData: currentAntiData,
-      dailyWins: dailyWins
+      
     });
   } catch (error) {
     console.error("Error saving data to cloud:", error);
@@ -539,67 +539,9 @@ const totalProgressFill = document.getElementById('total-progress-fill');
 const totalProgressText = document.getElementById('total-progress-text');
 const analyticsStats = document.getElementById('analytics-stats');
 
-const winInput = document.getElementById('daily-win-input');
-const saveWinBtn = document.getElementById('save-win-btn');
-const winHistory = document.getElementById('win-history');
-const streakCounter = document.getElementById('streak-counter');
 
-function renderDailyWins() {
-  if (!dailyWins) dailyWins = [];
-  
-  winHistory.innerHTML = '';
-  
-  let streak = 0;
-  const sortedWins = [...dailyWins].sort((a,b) => new Date(b.date) - new Date(a.date));
-  
-  let checkDate = new Date();
-  for (let i = 0; i < sortedWins.length; i++) {
-    const winDate = new Date(sortedWins[i].date);
-    const diffTime = Math.abs(checkDate - winDate);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-    
-    if (diffDays <= 1 || (i===0 && diffDays <=2)) {
-      streak++;
-      checkDate = winDate;
-    } else {
-      break;
-    }
-  }
-  
-  streakCounter.textContent = 'Streak: ' + streak;
 
-  sortedWins.slice(0, 10).forEach(win => {
-    const item = document.createElement('div');
-    item.classList.add('win-history-item');
-    item.innerHTML = `<span class="win-text">${win.win}</span><span class="win-date">${win.date}</span>`;
-    winHistory.appendChild(item);
-  });
-}
 
-window.addEventListener('load', () => {
-  setTimeout(renderDailyWins, 1500);
-});
-
-if (saveWinBtn) {
-  saveWinBtn.addEventListener('click', async () => {
-    const text = winInput.value.trim();
-    if (!text) return;
-    
-    const today = new Date().toLocaleDateString();
-    
-    if (!dailyWins) dailyWins = [];
-    const alreadyWon = dailyWins.find(w => w.date === today);
-    if (alreadyWon) {
-      alreadyWon.win = text;
-    } else {
-      dailyWins.push({ date: today, win: text });
-    }
-    
-    winInput.value = '';
-    renderDailyWins();
-    await saveDataToCloud();
-  });
-}
 
 if (analyticsBtn) {
   analyticsBtn.addEventListener('click', () => {
@@ -661,26 +603,8 @@ function calculateAnalytics() {
       <div class="stat-title">Habits Killed</div>
       <div class="stat-value">${antiCompleted}/${antiTotal}</div>
     </div>
-    <div class="stat-box">
-      <div class="stat-title">Daily Wins</div>
-      <div class="stat-value">${dailyWins ? dailyWins.length : 0}</div>
-    </div>
   `;
 }
 
-const viewHistoryBtn = document.getElementById('view-history-btn');
-const winHistoryModal = document.getElementById('win-history-modal');
-const closeHistoryBtn = document.getElementById('close-history-btn');
 
-if (viewHistoryBtn && winHistoryModal) {
-  viewHistoryBtn.addEventListener('click', () => {
-    winHistoryModal.classList.add('active');
-  });
-}
-
-if (closeHistoryBtn) {
-  closeHistoryBtn.addEventListener('click', () => {
-    winHistoryModal.classList.remove('active');
-  });
-}
 
