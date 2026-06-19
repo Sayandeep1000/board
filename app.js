@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+import { getAuth, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 import { mandalaData } from "./data.js";
 import { antiMandalaData } from "./anti_data.js";
@@ -53,7 +53,7 @@ const userName = document.getElementById('user-name');
 const provider = new GoogleAuthProvider();
 
 signInBtn.addEventListener('click', () => {
-  signInWithPopup(auth, provider).catch((error) => {
+  signInWithRedirect(auth, provider).catch((error) => {
     console.error("Error signing in with Google", error);
   });
 });
