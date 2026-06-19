@@ -27,6 +27,7 @@ let activeBlockId = null;
 let isEditing = false;
 let activeIsAnti = false;
 let currentUser = null;
+let dailyWins = [];
 
 // The layout order of the 9 blocks
 const blockOrder = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
