@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mandala Goal Chart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <h1>The Filmmaker's Grid</h1>
+      <p>A 24-Month Mandala Chart for Action & Accountability</p>
+    </header>
+
+    <main class="mandala-container" id="mandala-container">
+      <!-- 81 grid cells will be injected here by app.js -->
+    </main>
+  </div>
+
+  <!-- Modal for cell details -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content" id="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-body" id="modal-body">
+        <div class="modal-header" id="modal-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div><h2 id="modal-title">Title</h2></div>
+          <button class="edit-btn" id="edit-btn">Edit</button>
+        </div>
+        <div id="modal-desc">Description</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js?v=3"></script>
+  <script src="app.js?v=3"></script>
+</body>
+</html>

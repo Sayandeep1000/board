@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mandala Goal Chart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <h1>The Filmmaker's Grid</h1>
+      <p>A 24-Month Mandala Chart for Action & Accountability</p>
+      
+      <div id="auth-container" class="auth-container">
+        <button id="google-signin-btn" class="google-signin-btn">
+          <svg class="google-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/></svg>
+          Sign in with Google
+        </button>
+        <div id="user-info" class="user-info" style="display: none;">
+          <img id="user-avatar" src="" alt="Avatar" class="user-avatar">
+          <span id="user-name" class="user-name"></span>
+          <button id="signout-btn" class="signout-btn">Sign Out</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="mandala-container" id="mandala-container">
+      <!-- 81 grid cells will be injected here by app.js -->
+    </main>
+
+    <div class="divider">
+      <h2>The Inversion Grid</h2>
+      <p>The dark side of the blueprint: what to ruthlessly kill.</p>
+    </div>
+
+    <main class="mandala-container anti-container" id="anti-mandala-container">
+      <!-- 81 grid cells will be injected here by app.js -->
+    </main>
+  </div>
+
+  <!-- Modal for cell details -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content" id="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-body" id="modal-body">
+        <div class="modal-header" id="modal-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div><h2 id="modal-title">Title</h2></div>
+          <button class="edit-btn" id="edit-btn">Edit</button>
+        </div>
+        <div id="modal-desc">Description</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js?v=10"></script>
+</body>
+</html>
