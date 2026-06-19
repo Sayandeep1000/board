@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mandala Goal Chart</title>
+  <title>The Dual Mandala Board</title>
+  
+  <!-- PWA Links -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -59,8 +65,33 @@
   <!-- Floating Export Button -->
   <button id="export-btn" title="Export as Wallpaper">📷</button>
 
+  <!-- Zen Mode Overlay -->
+  <div id="zen-overlay" class="zen-overlay">
+    <div class="zen-content">
+      <h1 id="zen-title">Focusing...</h1>
+      <div id="zen-timer">50:00</div>
+      <button id="exit-zen-btn">Exit Zen Mode</button>
+    </div>
+  </div>
+
+  <!-- Ambient Sound -->
+  <audio id="ambient-audio" loop>
+    <!-- Using a placeholder white noise / lo-fi rain sound -->
+    <source src="https://assets.mixkit.co/sfx/preview/mixkit-light-rain-loop-2393.mp3" type="audio/mpeg">
+  </audio>
+
   <!-- html2canvas for exporting -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script type="module" src="app.js?v=11"></script>
+  <script type="module" src="app.js?v=12"></script>
+  <script>
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(reg => console.log('Service Worker registered'))
+          .catch(err => console.log('Service Worker registration failed:', err));
+      });
+    }
+  </script>
 </body>
 </html>

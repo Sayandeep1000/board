@@ -372,7 +372,69 @@ function renderModalContent(cellData, color) {
     } else {
       modalDesc.textContent = "No data available.";
     }
+
+    // Add Zen Mode Button to Modal
+    const zenBtn = document.createElement('button');
+    zenBtn.textContent = '⏱️ Start 50m Focus Block';
+    zenBtn.classList.add('start-zen-btn');
+    zenBtn.addEventListener('click', () => {
+      startZenMode(cellData.title);
+      closeModal();
+    });
+    modalDesc.appendChild(zenBtn);
   }
+}
+
+// -----------------------------------------
+// ZEN MODE / POMODORO LOGIC
+// -----------------------------------------
+const zenOverlay = document.getElementById('zen-overlay');
+const zenTitle = document.getElementById('zen-title');
+const zenTimerDisplay = document.getElementById('zen-timer');
+const exitZenBtn = document.getElementById('exit-zen-btn');
+const ambientAudio = document.getElementById('ambient-audio');
+let zenInterval;
+
+function startZenMode(taskTitle) {
+  zenTitle.textContent = "Focusing on: " + taskTitle;
+  zenOverlay.classList.add('active');
+  
+  if (ambientAudio) {
+    ambientAudio.volume = 0.5;
+    ambientAudio.play().catch(e => console.log('Audio play prevented by browser', e));
+  }
+  
+  let timeLeft = 50 * 60; // 50 minutes
+  
+  updateTimerDisplay(timeLeft);
+  
+  clearInterval(zenInterval);
+  zenInterval = setInterval(() => {
+    timeLeft--;
+    updateTimerDisplay(timeLeft);
+    if (timeLeft <= 0) {
+      clearInterval(zenInterval);
+      zenTitle.textContent = "Session Complete!";
+      if (ambientAudio) ambientAudio.pause();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay(seconds) {
+  const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+  const s = (seconds % 60).toString().padStart(2, '0');
+  zenTimerDisplay.textContent = `${m}:${s}`;
+}
+
+if (exitZenBtn) {
+  exitZenBtn.addEventListener('click', () => {
+    zenOverlay.classList.remove('active');
+    clearInterval(zenInterval);
+    if (ambientAudio) {
+      ambientAudio.pause();
+      ambientAudio.currentTime = 0;
+    }
+  });
 }
 
 editBtn.addEventListener('click', async () => {

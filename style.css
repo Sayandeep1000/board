@@ -585,3 +585,81 @@ body {
   box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
 }
 
+
+/* Zen Mode Overlay */
+.zen-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background-color: #000; /* Pure black for deep focus */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.zen-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.zen-content {
+  text-align: center;
+  color: #fff;
+}
+
+#zen-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+#zen-timer {
+  font-size: 8rem;
+  font-weight: 800;
+  font-family: monospace;
+  margin-bottom: 4rem;
+  text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+  color: #3b82f6;
+}
+
+#exit-zen-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--text-secondary);
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#exit-zen-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: #fff;
+}
+
+.start-zen-btn {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  transition: transform 0.2s;
+}
+
+.start-zen-btn:hover {
+  transform: translateY(-2px);
+}
+
