@@ -13,9 +13,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <!-- Cache bust the CSS so it actually loads! -->
+  <link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
+  
+  <!-- One Win Per Day Top Bar -->
+  <div class="top-win-bar">
+    <div class="win-header">
+      <span class="win-title">🔥 ONE WIN PER DAY</span>
+      <span id="streak-counter" class="win-streak">Streak: 0</span>
+    </div>
+    <div class="win-input-container">
+      <input type="text" id="daily-win-input" placeholder="Enter your critical win for today...">
+      <button id="save-win-btn">LOG WIN</button>
+      <button id="view-history-btn" title="View History">🕒</button>
+    </div>
+  </div>
+
   <div class="app-container">
     <header class="header">
       <h1>The Filmmaker's Grid</h1>
@@ -68,17 +83,13 @@
     <button id="export-btn" title="Export as Wallpaper">📷</button>
   </div>
 
-  <!-- One Win Per Day Widget -->
-  <div id="daily-win-widget" class="daily-win-widget">
-    <div class="win-header">
-      <span>🔥 One Win Per Day</span>
-      <span id="streak-counter">Streak: 0</span>
+  <!-- Win History Modal -->
+  <div id="win-history-modal" class="modal-overlay">
+    <div class="modal-content analytics-content">
+      <span class="close-btn" id="close-history-btn">&times;</span>
+      <h2>Victory Vault</h2>
+      <div id="win-history" class="win-history"></div>
     </div>
-    <div class="win-input-container">
-      <input type="text" id="daily-win-input" placeholder="What is your one win today?">
-      <button id="save-win-btn">Save</button>
-    </div>
-    <div id="win-history" class="win-history"></div>
   </div>
 
   <!-- Analytics Modal -->

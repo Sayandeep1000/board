@@ -839,3 +839,104 @@ body {
   color: white;
 }
 
+
+/* Top Win Bar Redesign */
+.top-win-bar {
+  background: linear-gradient(90deg, rgba(15,15,15,0.95), rgba(20,20,20,0.95));
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.top-win-bar .win-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+}
+
+.top-win-bar .win-title {
+  color: #f59e0b;
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.top-win-bar .win-streak {
+  color: #10b981;
+  font-weight: bold;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.top-win-bar .win-input-container {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  max-width: 600px;
+  margin: 0 20px;
+}
+
+.top-win-bar #daily-win-input {
+  flex: 1;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 10px 15px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.top-win-bar #daily-win-input:focus {
+  border-color: #f59e0b;
+  outline: none;
+  background: rgba(0,0,0,0.6);
+}
+
+.top-win-bar #save-win-btn {
+  background: #f59e0b;
+  color: #000;
+  border: none;
+  padding: 0 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.top-win-bar #save-win-btn:hover {
+  background: #d97706;
+  transform: translateY(-1px);
+}
+
+.top-win-bar #view-history-btn {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0 15px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.top-win-bar #view-history-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.modal-content.analytics-content {
+  background: rgba(15,15,15,0.98);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+

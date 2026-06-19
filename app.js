@@ -664,3 +664,20 @@ function calculateAnalytics() {
     </div>
   `;
 }
+
+const viewHistoryBtn = document.getElementById('view-history-btn');
+const winHistoryModal = document.getElementById('win-history-modal');
+const closeHistoryBtn = document.getElementById('close-history-btn');
+
+if (viewHistoryBtn && winHistoryModal) {
+  viewHistoryBtn.addEventListener('click', () => {
+    winHistoryModal.classList.add('active');
+  });
+}
+
+if (closeHistoryBtn) {
+  closeHistoryBtn.addEventListener('click', () => {
+    winHistoryModal.classList.remove('active');
+  });
+}
+
