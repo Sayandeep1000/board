@@ -663,3 +663,179 @@ body {
   transform: translateY(-2px);
 }
 
+
+/* Floating Action Buttons Container */
+.fab-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 50;
+}
+
+.fab-container button {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fab-container button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+}
+
+#analytics-btn {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+/* One Win Per Day Widget */
+.daily-win-widget {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 320px;
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 15px;
+  z-index: 50;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+}
+
+.win-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #f59e0b;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+#streak-counter {
+  color: #10b981;
+  font-weight: bold;
+}
+
+.win-input-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+#daily-win-input {
+  flex: 1;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  padding: 8px 10px;
+  color: white;
+  font-family: inherit;
+}
+
+#save-win-btn {
+  background: #f59e0b;
+  color: #000;
+  border: none;
+  padding: 0 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#save-win-btn:hover {
+  background: #d97706;
+}
+
+.win-history {
+  max-height: 120px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.win-history-item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(255,255,255,0.1);
+}
+
+.win-date {
+  color: #8b5cf6;
+  font-weight: bold;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+/* Analytics Modal Styles */
+.analytics-content {
+  max-width: 600px;
+  text-align: center;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 24px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0 10px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  transition: width 1s ease-out;
+}
+
+#total-progress-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #10b981;
+  margin-bottom: 30px;
+}
+
+.analytics-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.stat-box {
+  background: rgba(0,0,0,0.3);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.stat-title {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+

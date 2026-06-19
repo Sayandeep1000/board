@@ -526,3 +526,141 @@ if (exportBtn) {
   });
 }
 
+// -----------------------------------------
+// ANALYTICS & DAILY WINS LOGIC
+// -----------------------------------------
+const analyticsBtn = document.getElementById('analytics-btn');
+const analyticsModal = document.getElementById('analytics-modal');
+const closeAnalyticsBtn = document.getElementById('close-analytics-btn');
+const totalProgressFill = document.getElementById('total-progress-fill');
+const totalProgressText = document.getElementById('total-progress-text');
+const analyticsStats = document.getElementById('analytics-stats');
+
+const winInput = document.getElementById('daily-win-input');
+const saveWinBtn = document.getElementById('save-win-btn');
+const winHistory = document.getElementById('win-history');
+const streakCounter = document.getElementById('streak-counter');
+
+function renderDailyWins() {
+  if (!savedData.dailyWins) savedData.dailyWins = [];
+  
+  winHistory.innerHTML = '';
+  
+  let streak = 0;
+  const sortedWins = [...savedData.dailyWins].sort((a,b) => new Date(b.date) - new Date(a.date));
+  
+  let checkDate = new Date();
+  for (let i = 0; i < sortedWins.length; i++) {
+    const winDate = new Date(sortedWins[i].date);
+    const diffTime = Math.abs(checkDate - winDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    
+    if (diffDays <= 1 || (i===0 && diffDays <=2)) {
+      streak++;
+      checkDate = winDate;
+    } else {
+      break;
+    }
+  }
+  
+  streakCounter.textContent = 'Streak: ' + streak;
+
+  sortedWins.slice(0, 10).forEach(win => {
+    const item = document.createElement('div');
+    item.classList.add('win-history-item');
+    item.innerHTML = `<span class="win-text">${win.win}</span><span class="win-date">${win.date}</span>`;
+    winHistory.appendChild(item);
+  });
+}
+
+window.addEventListener('load', () => {
+  setTimeout(renderDailyWins, 1500);
+});
+
+if (saveWinBtn) {
+  saveWinBtn.addEventListener('click', async () => {
+    const text = winInput.value.trim();
+    if (!text) return;
+    
+    const today = new Date().toLocaleDateString();
+    
+    if (!savedData.dailyWins) savedData.dailyWins = [];
+    const alreadyWon = savedData.dailyWins.find(w => w.date === today);
+    if (alreadyWon) {
+      alreadyWon.win = text;
+    } else {
+      savedData.dailyWins.push({ date: today, win: text });
+    }
+    
+    winInput.value = '';
+    renderDailyWins();
+    await saveDataToCloud();
+  });
+}
+
+if (analyticsBtn) {
+  analyticsBtn.addEventListener('click', () => {
+    analyticsModal.classList.add('active');
+    calculateAnalytics();
+  });
+}
+
+if (closeAnalyticsBtn) {
+  closeAnalyticsBtn.addEventListener('click', () => {
+    analyticsModal.classList.remove('active');
+  });
+}
+
+function calculateAnalytics() {
+  let totalSteps = 0;
+  let completedSteps = 0;
+  
+  let antiTotal = 0;
+  let antiCompleted = 0;
+  
+  let mainTotal = 0;
+  let mainCompleted = 0;
+
+  for (const key in currentData) {
+    if (currentData[key] && currentData[key].steps) {
+      const validSteps = currentData[key].steps.filter(s => s.trim());
+      mainTotal += validSteps.length;
+      if (currentData[key].completedSteps) {
+        mainCompleted += currentData[key].completedSteps.filter(v => v).length;
+      }
+    }
+  }
+
+  for (const key in currentAntiData) {
+    if (currentAntiData[key] && currentAntiData[key].steps) {
+      const validSteps = currentAntiData[key].steps.filter(s => s.trim() && !isHeaderStep(s));
+      antiTotal += validSteps.length;
+      if (currentAntiData[key].completedSteps) {
+        antiCompleted += currentAntiData[key].completedSteps.filter(v => v).length;
+      }
+    }
+  }
+
+  totalSteps = mainTotal + antiTotal;
+  completedSteps = mainCompleted + antiCompleted;
+  
+  const percent = totalSteps === 0 ? 0 : Math.round((completedSteps / totalSteps) * 100);
+  
+  totalProgressFill.style.width = percent + '%';
+  totalProgressText.textContent = percent + '% Complete';
+  
+  analyticsStats.innerHTML = `
+    <div class="stat-box">
+      <div class="stat-title">Total Goals</div>
+      <div class="stat-value">${mainCompleted}/${mainTotal}</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-title">Habits Killed</div>
+      <div class="stat-value">${antiCompleted}/${antiTotal}</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-title">Daily Wins</div>
+      <div class="stat-value">${savedData.dailyWins ? savedData.dailyWins.length : 0}</div>
+    </div>
+  `;
+}

@@ -62,8 +62,40 @@
     </div>
   </div>
 
-  <!-- Floating Export Button -->
-  <button id="export-btn" title="Export as Wallpaper">📷</button>
+  <!-- Floating Action Buttons -->
+  <div class="fab-container">
+    <button id="analytics-btn" title="View Progress Analytics">📊</button>
+    <button id="export-btn" title="Export as Wallpaper">📷</button>
+  </div>
+
+  <!-- One Win Per Day Widget -->
+  <div id="daily-win-widget" class="daily-win-widget">
+    <div class="win-header">
+      <span>🔥 One Win Per Day</span>
+      <span id="streak-counter">Streak: 0</span>
+    </div>
+    <div class="win-input-container">
+      <input type="text" id="daily-win-input" placeholder="What is your one win today?">
+      <button id="save-win-btn">Save</button>
+    </div>
+    <div id="win-history" class="win-history"></div>
+  </div>
+
+  <!-- Analytics Modal -->
+  <div id="analytics-modal" class="modal-overlay">
+    <div class="modal-content analytics-content">
+      <span class="close-btn" id="close-analytics-btn">&times;</span>
+      <h2>Progress Analytics</h2>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="total-progress-fill"></div>
+      </div>
+      <p id="total-progress-text">0% Complete</p>
+      
+      <div class="analytics-stats" id="analytics-stats">
+        <!-- JS will inject stats here -->
+      </div>
+    </div>
+  </div>
 
   <!-- Zen Mode Overlay -->
   <div id="zen-overlay" class="zen-overlay">
@@ -82,7 +114,7 @@
 
   <!-- html2canvas for exporting -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script type="module" src="app.js?v=12"></script>
+  <script type="module" src="app.js?v=13"></script>
   <script>
     // Register Service Worker for PWA
     if ('serviceWorker' in navigator) {
