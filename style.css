@@ -561,30 +561,7 @@ body {
 }
 
 /* Floating Export Button */
-#export-btn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 50;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
-#export-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
-}
 
 
 /* Zen Mode Overlay */

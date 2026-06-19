@@ -481,55 +481,6 @@ document.addEventListener('keydown', (e) => {
 });
 
 // -----------------------------------------
-// EXPORT WALLPAPER ENGINE
-// -----------------------------------------
-const exportBtn = document.getElementById('export-btn');
-
-if (exportBtn) {
-  exportBtn.addEventListener('click', async () => {
-    try {
-      const originalText = exportBtn.textContent;
-      exportBtn.textContent = '?';
-      exportBtn.disabled = true;
-      
-      const elementToCapture = document.querySelector('.app-container');
-      
-      // We need to briefly ensure the page is fully visible before capture
-      window.scrollTo(0, 0);
-      
-      const canvas = await html2canvas(elementToCapture, {
-        backgroundColor: '#0a0a0a',
-        scale: 2, // High resolution
-        useCORS: true,
-        logging: false
-      });
-      
-      const image = canvas.toDataURL('image/png', 1.0);
-      
-      const link = document.createElement('a');
-      link.download = 'Mandala-Blueprint-Wallpaper.png';
-      link.href = image;
-      link.click();
-      
-      exportBtn.textContent = '?';
-      setTimeout(() => {
-        exportBtn.textContent = originalText;
-        exportBtn.disabled = false;
-      }, 2000);
-      
-    } catch (error) {
-      console.error('Error exporting image:', error);
-      exportBtn.textContent = '?';
-      setTimeout(() => {
-        exportBtn.textContent = '??';
-        exportBtn.disabled = false;
-      }, 2000);
-      alert('Failed to generate wallpaper.');
-    }
-  });
-}
-
-// -----------------------------------------
 // ANALYTICS & DAILY WINS LOGIC
 // -----------------------------------------
 const analyticsBtn = document.getElementById('analytics-btn');
