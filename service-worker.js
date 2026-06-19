@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mandala-board-v1';
+const CACHE_NAME = 'mandala-board-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -11,20 +11,41 @@ const ASSETS_TO_CACHE = [
 ];
 
 self.addEventListener('install', event => {
+  self.skipWaiting(); // Force activate immediately
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(ASSETS_TO_CACHE);
-      })
+      .then(cache => cache.addAll(ASSETS_TO_CACHE))
   );
 });
 
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache); // Delete old v1 cache
+          }
+        })
+      );
+    })
+  );
+  self.clients.claim(); // Take control immediately
+});
+
 self.addEventListener('fetch', event => {
+  // Network-first strategy to guarantee fresh updates
   event.respondWith(
-    caches.match(event.request)
+    fetch(event.request)
       .then(response => {
-        // Return cached version if found, else fetch from network
-        return response || fetch(event.request);
+        const responseClone = response.clone();
+        caches.open(CACHE_NAME).then(cache => {
+          cache.put(event.request, responseClone);
+        });
+        return response;
+      })
+      .catch(() => {
+        return caches.match(event.request);
       })
   );
 });
