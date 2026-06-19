@@ -94,6 +94,7 @@ async function loadDataFromCloud() {
       const savedData = docSnap.data();
       currentData = savedData.boardData || mandalaData;
       currentAntiData = savedData.antiBoardData || antiMandalaData;
+      dailyWins = savedData.dailyWins || [];
       
       // Auto-merge logic for both boards
       const blockI = currentData["I"];
@@ -155,7 +156,8 @@ async function saveDataToCloud() {
   try {
     await setDoc(docRef, { 
       boardData: currentData,
-      antiBoardData: currentAntiData
+      antiBoardData: currentAntiData,
+      dailyWins: dailyWins
     });
   } catch (error) {
     console.error("Error saving data to cloud:", error);
@@ -542,12 +544,12 @@ const winHistory = document.getElementById('win-history');
 const streakCounter = document.getElementById('streak-counter');
 
 function renderDailyWins() {
-  if (!savedData.dailyWins) savedData.dailyWins = [];
+  if (!dailyWins) dailyWins = [];
   
   winHistory.innerHTML = '';
   
   let streak = 0;
-  const sortedWins = [...savedData.dailyWins].sort((a,b) => new Date(b.date) - new Date(a.date));
+  const sortedWins = [...dailyWins].sort((a,b) => new Date(b.date) - new Date(a.date));
   
   let checkDate = new Date();
   for (let i = 0; i < sortedWins.length; i++) {
@@ -584,12 +586,12 @@ if (saveWinBtn) {
     
     const today = new Date().toLocaleDateString();
     
-    if (!savedData.dailyWins) savedData.dailyWins = [];
-    const alreadyWon = savedData.dailyWins.find(w => w.date === today);
+    if (!dailyWins) dailyWins = [];
+    const alreadyWon = dailyWins.find(w => w.date === today);
     if (alreadyWon) {
       alreadyWon.win = text;
     } else {
-      savedData.dailyWins.push({ date: today, win: text });
+      dailyWins.push({ date: today, win: text });
     }
     
     winInput.value = '';
@@ -660,7 +662,7 @@ function calculateAnalytics() {
     </div>
     <div class="stat-box">
       <div class="stat-title">Daily Wins</div>
-      <div class="stat-value">${savedData.dailyWins ? savedData.dailyWins.length : 0}</div>
+      <div class="stat-value">${dailyWins ? dailyWins.length : 0}</div>
     </div>
   `;
 }
