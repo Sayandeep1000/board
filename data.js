@@ -249,7 +249,7 @@ export const mandalaData = {
       },
       {
         id: "E9",
-        title: "DATING & COMMUNICATION (Block I)",
+        title: "COMMUNICATION (Block I)",
         steps: ["E9.1: Core objective placeholder", "E9.2: Core objective placeholder"]
       },
     ]
@@ -408,7 +408,7 @@ export const mandalaData = {
     ]
   },
   "I": {
-    title: "Dating & Communication Skills",
+    title: "Communication Skills",
     color: "#1d4ed8",
     cells: [
       {
@@ -433,8 +433,8 @@ export const mandalaData = {
       },
       {
         id: "I5",
-        title: "DATING & COMMUNICATION SKILLS",
-        steps: ["I5.1: Record Voice to Eliminate Filler Words (I1)", "I5.2: Study High-Stakes Negotiation (I2)", "I5.3: Practice Deep Active Listening (I3)", "I5.4: Speak with Absolute Conviction (I4)", "I5.5: DATING & COMMUNICATION SKILLS (Pillar Center)", "I5.6: Pitch Ideas in 3 Sentences Max (I6)", "I5.7: Write Clear, Empathetic Emails (I7)", "I5.8: Handle Client Objections Calmly (I8)", "I5.9: Maintain Strong Mutual Eye Contact (I9)"]
+        title: "COMMUNICATION SKILLS",
+        steps: ["I5.1: Record Voice to Eliminate Filler Words (I1)", "I5.2: Study High-Stakes Negotiation (I2)", "I5.3: Practice Deep Active Listening (I3)", "I5.4: Speak with Absolute Conviction (I4)", "I5.5: COMMUNICATION SKILLS (Pillar Center)", "I5.6: Pitch Ideas in 3 Sentences Max (I6)", "I5.7: Write Clear, Empathetic Emails (I7)", "I5.8: Handle Client Objections Calmly (I8)", "I5.9: Maintain Strong Mutual Eye Contact (I9)"]
       },
       {
         id: "I6",

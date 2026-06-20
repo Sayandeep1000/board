@@ -1,8 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-import { mandalaData } from "./data.js";
-import { antiMandalaData } from "./anti_data.js";
+import { mandalaData } from "./data.js?v=5";
+import { antiMandalaData } from "./anti_data.js?v=5";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
