@@ -37,6 +37,7 @@ const antiContainer = document.getElementById('anti-mandala-container');
 const modalOverlay = document.getElementById('modal-overlay');
 const modalClose = document.getElementById('modal-close');
 const modalTitle = document.getElementById('modal-title');
+const modalTitleInput = document.getElementById('modal-title-input');
 const modalDesc = document.getElementById('modal-desc');
 const modalContent = document.getElementById('modal-content');
 const editBtn = document.getElementById('edit-btn');
@@ -301,13 +302,18 @@ function isHeaderStep(step) {
   return step.toUpperCase() === step && step.length > 3 && step.includes(':');
 }
 
-function renderModalContent(cellData, color) {
-  modalDesc.innerHTML = '';
-  
-  if (isEditing) {
-    editBtn.textContent = 'Save';
+  function renderModalContent(cellData, color) {
+    modalDesc.innerHTML = '';
     
-    const stepsContainer = document.createElement('div');
+    if (isEditing) {
+      editBtn.textContent = 'Save';
+      
+      modalTitle.style.display = 'none';
+      modalTitleInput.style.display = 'block';
+      modalTitleInput.value = cellData.title;
+      modalTitleInput.style.color = color;
+      
+      const stepsContainer = document.createElement('div');
     stepsContainer.classList.add('edit-steps-container');
     
     const steps = cellData.steps && cellData.steps.length > 0 ? cellData.steps : [""];
@@ -334,11 +340,14 @@ function renderModalContent(cellData, color) {
     
     stepsContainer.appendChild(addBtn);
     modalDesc.appendChild(stepsContainer);
-    
-  } else {
-    editBtn.textContent = 'Edit';
-    
-    if (cellData.steps && cellData.steps.length > 0) {
+      } else {
+      editBtn.textContent = 'Edit';
+      
+      modalTitle.style.display = 'block';
+      modalTitleInput.style.display = 'none';
+      modalTitle.textContent = `${cellData.id}: ${cellData.title}`;
+      
+      if (cellData.steps && cellData.steps.length > 0) {
       if (!cellData.completedSteps) cellData.completedSteps = [];
       
       const listContainer = document.createElement('div');
@@ -465,27 +474,38 @@ if (exitZenBtn) {
   });
 }
 
-editBtn.addEventListener('click', async () => {
-  const dataObj = activeIsAnti ? currentAntiData : currentData;
-  const blockData = dataObj[activeBlockId];
-  const cellData = blockData.cells[activeCellId];
-  
-  if (isEditing) {
-    const textareas = modalDesc.querySelectorAll('.step-textarea');
-    const newSteps = [];
-    textareas.forEach(ta => {
-      if (ta.value.trim() !== '') {
-        newSteps.push(ta.value.trim());
-      }
-    });
-    cellData.steps = newSteps;
+  editBtn.addEventListener('click', async () => {
+    const dataObj = activeIsAnti ? currentAntiData : currentData;
+    const blockData = dataObj[activeBlockId];
+    const cellData = blockData.cells[activeCellId];
     
-    await saveDataToCloud();
-  }
-  
-  isEditing = !isEditing;
-  renderModalContent(cellData, blockData.color);
-});
+    if (isEditing) {
+      if (modalTitleInput.value.trim() !== '') {
+        cellData.title = modalTitleInput.value.trim();
+      }
+
+      const textareas = modalDesc.querySelectorAll('.step-textarea');
+      const newSteps = [];
+      textareas.forEach(ta => {
+        if (ta.value.trim() !== '') {
+          newSteps.push(ta.value.trim());
+        }
+      });
+      cellData.steps = newSteps;
+      
+      await saveDataToCloud();
+      
+      // Update grid UI with the new title
+      if (activeIsAnti) {
+        renderGrid(antiContainer, currentAntiData, true);
+      } else {
+        renderGrid(container, currentData, false);
+      }
+    }
+    
+    isEditing = !isEditing;
+    renderModalContent(cellData, blockData.color);
+  });
 
 function closeModal() {
   modalOverlay.classList.remove('active');

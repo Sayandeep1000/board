@@ -58,7 +58,10 @@
       <button class="modal-close" id="modal-close">&times;</button>
       <div class="modal-body" id="modal-body">
         <div class="modal-header" id="modal-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <div><h2 id="modal-title">Title</h2></div>
+          <div style="flex: 1; margin-right: 15px;">
+            <h2 id="modal-title">Title</h2>
+            <textarea id="modal-title-input" class="modal-title-input" rows="2" style="display: none;"></textarea>
+          </div>
           <button class="edit-btn" id="edit-btn">Edit</button>
         </div>
         <div id="modal-desc">Description</div>

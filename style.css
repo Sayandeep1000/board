@@ -644,3 +644,20 @@ body {
 }
 
 
+.modal-title-input {
+  width: 100%;
+  background: transparent;
+  border: 1px dashed rgba(255,255,255,0.3);
+  color: inherit;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  resize: none;
+  outline: none;
+  padding: 5px;
+  margin-top: 5px;
+}
+.modal-title-input:focus {
+  border-color: rgba(255,255,255,0.7);
+}
