@@ -230,7 +230,7 @@ function checkLockout() {
 }
 
 // ── USC COUNTDOWN + VELOCITY ENGINE ──
-const USC_DEADLINE = new Date('2027-12-01T00:00:00'); // December 1, 2027
+const USC_DEADLINE = new Date('2028-06-01T00:00:00'); // June 1, 2028
 const TOTAL_TARGET = 250000;
 
 function initUSCCountdown() {
