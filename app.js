@@ -102,6 +102,25 @@ async function loadDataFromCloud() {
       const blockE = currentData["E"];
       const antiBlockA = currentAntiData["A"];
       let dataChanged = false;
+        
+        // Migration: Rename "Dating & Communication" to "Communication"
+        if (currentData["I"]) {
+          if (currentData["I"].title.includes("Dating")) {
+            currentData["I"].title = currentData["I"].title.replace("Dating & ", "");
+            dataChanged = true;
+          }
+          if (currentData["I"].cells && currentData["I"].cells[4] && currentData["I"].cells[4].title.includes("DATING")) {
+            currentData["I"].cells[4].title = currentData["I"].cells[4].title.replace("DATING & ", "");
+            if (currentData["I"].cells[4].steps && currentData["I"].cells[4].steps[4]) {
+              currentData["I"].cells[4].steps[4] = currentData["I"].cells[4].steps[4].replace("DATING & ", "");
+            }
+            dataChanged = true;
+          }
+        }
+        if (currentData["E"] && currentData["E"].cells && currentData["E"].cells[8] && currentData["E"].cells[8].title.includes("DATING")) {
+          currentData["E"].cells[8].title = currentData["E"].cells[8].title.replace("DATING & ", "");
+          dataChanged = true;
+        }
       
       if (blockI && blockI.cells && blockI.cells[4] && blockI.cells[4].title.includes("Placeholder")) {
         currentData["I"] = mandalaData["I"];
