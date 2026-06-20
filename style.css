@@ -161,10 +161,11 @@ body {
 }
 
 .cell-title {
-  font-size: 0.8rem;
+  font-size: clamp(0.6rem, 1vw, 0.8rem);
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.2;
   word-wrap: break-word;
+  word-break: break-word;
   pointer-events: none;
   z-index: 2;
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -178,7 +179,8 @@ body {
 }
 
 .mandala-cell.center-cell .cell-title {
-  font-size: 0.95rem;
+  font-size: clamp(0.7rem, 1.2vw, 0.95rem);
+  line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

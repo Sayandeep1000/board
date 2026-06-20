@@ -121,6 +121,12 @@ async function loadDataFromCloud() {
           currentData["E"].cells[8].title = currentData["E"].cells[8].title.replace("DATING & ", "");
           dataChanged = true;
         }
+
+        // Migration: Rename Placeholder I4 to Speak with Absolute Conviction
+        if (currentData["I"] && currentData["I"].cells && currentData["I"].cells[3] && currentData["I"].cells[3].title === "Placeholder I4") {
+          currentData["I"].cells[3].title = "Speak with Absolute Conviction";
+          dataChanged = true;
+        }
       
       if (blockI && blockI.cells && blockI.cells[4] && blockI.cells[4].title.includes("Placeholder")) {
         currentData["I"] = mandalaData["I"];

@@ -428,7 +428,7 @@ export const mandalaData = {
       },
       {
         id: "I4",
-        title: "Placeholder I4",
+        title: "Speak with Absolute Conviction",
         steps: ["I4.1: Placeholder step"]
       },
       {
