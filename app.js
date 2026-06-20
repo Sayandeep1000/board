@@ -397,7 +397,7 @@ function isHeaderStep(step) {
             renderAllGrids();
             
             // Save state to cloud seamlessly
-            await saveDataToCloud();
+            saveDataToCloud();
           });
           
           container.appendChild(checkbox);
@@ -493,7 +493,7 @@ if (exitZenBtn) {
       });
       cellData.steps = newSteps;
       
-      await saveDataToCloud();
+      saveDataToCloud(); // Fire-and-forget sync for instant UI
       
       // Update grid UI with the new title
       if (activeIsAnti) {
