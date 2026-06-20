@@ -1040,3 +1040,16 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(139,92,246,0.25);
 }
+
+/* Header actions — side by side layout */
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.header-actions .auth-container {
+  margin: 0;
+}
