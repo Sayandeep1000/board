@@ -1,4 +1,4 @@
-export const mandalaData = {
+﻿export const mandalaData = {
   "A": {
     title: "Freelancing / Editing",
     color: "#059669",
@@ -464,7 +464,7 @@ export const roadmapData = [
     phase: "Year 1: Foundation & Systems Leverage",
     month: "Month 1",
     title: "The Technical Positioning Reset",
-    profit: "$400 USD (~?33,000)",
+    profit: "$400 USD (~₹33,000)",
     learn: "Technical: Advanced retention graphics using expression loops in After Effects. Psychological: Scripting retention hooks.",
     target: "Individual tech creators, AI educators, and mid-tier B2B indie hackers on X and YouTube.",
     execution: [
@@ -477,13 +477,13 @@ export const roadmapData = [
     phase: "Year 1: Foundation & Systems Leverage",
     month: "Month 2",
     title: "Locking the First Retainers",
-    profit: "$2,000 USD (~?1.6 Lakhs)",
+    profit: "$2,000 USD (~₹1.6 Lakhs)",
     learn: "High-Stakes Negotiation: Read Never Split the Difference. Production Design: Master clear, high-quality audio mixing.",
     target: "Convert your successful $50 micro-trial clients from Month 1 into permanent, long-term retainers.",
     execution: [
       "Upon delivering a successful paid trial, send a single-page scope proposal for $1,000/month.",
       "Secure your first 2 anchor retainer clients to build a reliable base layer of monthly recurring revenue (MRR).",
-      "Launch your personal YouTube Channel ('Filmmaker�s Journal'). Upload Video 1."
+      "Launch your personal YouTube Channel ('Filmmaker’s Journal'). Upload Video 1."
     ],
     trap: "The Low-Value Loop. Do not accept one-off video requests from clients who refuse to sign a multi-month retainer."
   },
@@ -491,11 +491,11 @@ export const roadmapData = [
     phase: "Year 1: Foundation & Systems Leverage",
     month: "Month 3",
     title: "Breaking the Solo Bandwidth Bottleneck",
-    profit: "$2,700 USD (~?2.2 Lakhs)",
+    profit: "$2,700 USD (~₹2.2 Lakhs)",
     learn: "Management & Systems: Learn how to write clear SOPs. Asset Automation: Master cloud file automation.",
     target: "Secure a 3rd retainer client ($1,000/mo) to deliberately push your workload past your personal bandwidth capacity.",
     execution: [
-      "Hire your 1st Junior Subcontractor Editor. Pay them a reliable flat rate of ?25,000/month.",
+      "Hire your 1st Junior Subcontractor Editor. Pay them a reliable flat rate of ₹25,000/month.",
       "You write script hooks and handle clients. Subcontractor executes timeline cutting.",
       "Upload Video 2 to your YouTube channel focusing on your systems architecture."
     ],
@@ -503,9 +503,9 @@ export const roadmapData = [
   },
   {
     phase: "Year 1: Foundation & Systems Leverage",
-    month: "Months 4�6",
+    month: "Months 4–6",
     title: "Deploying the B2B Agency Engine",
-    profit: "Scaling to $5,000 USD / Month (~?4.1 Lakhs/Month)",
+    profit: "Scaling to $5,000 USD / Month (~₹4.1 Lakhs/Month)",
     learn: "B2B Corporate Copywriting: Pitch content as a customer acquisition asset. LinkedIn Inbound Setup.",
     target: "Founders, CMOs, and marketing leads at seed-funded or Series A tech startups.",
     execution: [
@@ -517,9 +517,9 @@ export const roadmapData = [
   },
   {
     phase: "Year 1: Foundation & Systems Leverage",
-    month: "Months 7�9",
+    month: "Months 7–9",
     title: "Building Core Operational Leverage",
-    profit: "Stable $7,000 USD / Month (~?5.8 Lakhs/Month)",
+    profit: "Stable $7,000 USD / Month (~₹5.8 Lakhs/Month)",
     learn: "Financial Architecture: Master cash-flow tracking. Advanced Screenwriting: Read Story by Robert McKee.",
     target: "Scale the active client list to 5 steady retainer accounts paying an average of $1,600/month each.",
     execution: [
@@ -531,9 +531,9 @@ export const roadmapData = [
   },
   {
     phase: "Year 1: Foundation & Systems Leverage",
-    month: "Months 10�12",
+    month: "Months 10–12",
     title: "Activating the Inbound Funnel",
-    profit: "$10,000 USD / Month (~?8.3 Lakhs/Month)",
+    profit: "$10,000 USD / Month (~₹8.3 Lakhs/Month)",
     learn: "Funnel Conversion: Learn how to use automated calendar scheduling systems paired with targeted qualifying forms.",
     target: "Inbound technology founders and digital creators who discover your brand organically via YouTube.",
     execution: [
@@ -545,9 +545,9 @@ export const roadmapData = [
   },
   {
     phase: "Year 2: Upgrading to High-Ticket Accounts",
-    month: "Months 13�15",
+    month: "Months 13–15",
     title: "Upgrading to High-Ticket Packages",
-    profit: "$13,000 USD / Month (~?10.8 Lakhs/Month)",
+    profit: "$13,000 USD / Month (~₹10.8 Lakhs/Month)",
     learn: "Corporate Visual Directing: Study the visual pacing of high-end corporate product trailers and tech advertisements.",
     target: "Mid-market, venture-funded B2B software enterprises requiring a comprehensive multi-platform video presence.",
     execution: [
@@ -559,9 +559,9 @@ export const roadmapData = [
   },
   {
     phase: "Year 2: Upgrading to High-Ticket Accounts",
-    month: "Months 16�18",
+    month: "Months 16–18",
     title: "Automating the Agency Engine",
-    profit: "$16,000 USD / Month (~?13.3 Lakhs/Month)",
+    profit: "$16,000 USD / Month (~₹13.3 Lakhs/Month)",
     learn: "Operational Delegation: Master the art of hands-off system management.",
     target: "Maintain a premium account portfolio: 4 standard creator retainers + 3 high-ticket corporate accounts.",
     execution: [
@@ -572,9 +572,9 @@ export const roadmapData = [
   },
   {
     phase: "Year 2: Upgrading to High-Ticket Accounts",
-    month: "Months 19�21",
+    month: "Months 19–21",
     title: "The Core Portfolio Production Sprint",
-    profit: "$17,500 USD / Month (~?14.5 Lakhs/Month)",
+    profit: "$17,500 USD / Month (~₹14.5 Lakhs/Month)",
     learn: "Cinematographic Direction & Leadership: Study scene composition, lighting design, and staging mechanics.",
     target: "Keep your active agency machine running steadily on autopilot, supported by your senior subcontractor editors.",
     execution: [
@@ -585,9 +585,9 @@ export const roadmapData = [
   },
   {
     phase: "Year 2: Upgrading to High-Ticket Accounts",
-    month: "Months 22�24",
+    month: "Months 22–24",
     title: "The Final USC Application Submission",
-    profit: "$19,000 USD / Month (~?15.8 Lakhs/Month)",
+    profit: "$19,000 USD / Month (~₹15.8 Lakhs/Month)",
     learn: "Elite Level Essay Crafting: Study how to write a compelling personal statement that connects ECE logic to cinematic vision.",
     target: "The University of Southern California (USC) Graduate Admissions Board.",
     execution: [
