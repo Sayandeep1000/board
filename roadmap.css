@@ -714,3 +714,12 @@ body {
   .pipeline-timeline { flex-direction: column; }
   .pipeline-connector { width: 2px; height: 24px; min-width: unset; margin-bottom: 0; margin-right: 0; background: linear-gradient(180deg, var(--accent-gold), rgba(245,158,11,0.3)); }
 }
+
+/* UI / Typography Optimization — roadmap-card-step */
+.roadmap-card-step,
+.month-list li,
+.inversion-trap {
+  font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+  line-height: 1.4;
+  letter-spacing: 0.015em;
+}
