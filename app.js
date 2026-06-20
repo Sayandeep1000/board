@@ -1,8 +1,8 @@
-﻿import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-import { mandalaData, roadmapData } from "./data.js?v=6";
-import { antiMandalaData } from "./anti_data.js?v=6";
+import { mandalaData } from "./data.js?v=5";
+import { antiMandalaData } from "./anti_data.js?v=5";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -412,7 +412,7 @@ function isHeaderStep(step) {
 
     // Add Zen Mode Button to Modal
     const zenBtn = document.createElement('button');
-    zenBtn.textContent = 'â±ï¸ Start 50m Focus Block';
+    zenBtn.textContent = '⏱️ Start 50m Focus Block';
     zenBtn.classList.add('start-zen-btn');
     zenBtn.addEventListener('click', () => {
       startZenMode(cellData.title);
@@ -604,70 +604,3 @@ function calculateAnalytics() {
 
 
 
-// --- Roadmap Modal Logic ---
-const roadmapBtn = document.getElementById('roadmap-btn');
-const roadmapOverlay = document.getElementById('roadmap-overlay');
-const roadmapClose = document.getElementById('roadmap-close');
-const roadmapTimeline = document.getElementById('roadmap-timeline');
-
-if (roadmapBtn && roadmapOverlay && roadmapClose && roadmapTimeline) {
-  roadmapBtn.addEventListener('click', () => {
-    roadmapOverlay.classList.add('active');
-    renderRoadmap();
-  });
-  
-  roadmapClose.addEventListener('click', () => {
-    roadmapOverlay.classList.remove('active');
-  });
-  
-  roadmapOverlay.addEventListener('click', (e) => {
-    if (e.target === roadmapOverlay) {
-      roadmapOverlay.classList.remove('active');
-    }
-  });
-  
-  function renderRoadmap() {
-    if (roadmapTimeline.innerHTML.trim() !== '') return; // Already rendered
-    
-    let html = '';
-    roadmapData.forEach((item, index) => {
-      const isYear2 = item.phase.includes('Year 2');
-      const yearClass = isYear2 ? 'year-2' : '';
-      
-      const executionBullets = item.execution.map(ex => `<li>${ex}</li>`).join('');
-      
-      html += `<div class="timeline-item ${yearClass}">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-card">
-            <div class="t-month">${item.month} (${item.phase.split(':')[0]})</div>
-            <div class="t-title">${item.title}</div>
-            <div class="t-profit">${item.profit}</div>
-            
-            <div class="t-section">
-              <span class="t-label">What to Master</span>
-              <span class="t-text">${item.learn}</span>
-            </div>
-            
-            <div class="t-section">
-              <span class="t-label">Whom to Target</span>
-              <span class="t-text">${item.target}</span>
-            </div>
-            
-            <div class="t-section">
-              <span class="t-label">Execution Protocol</span>
-              <ul class="t-list">${executionBullets}</ul>
-            </div>
-            
-            <div class="t-trap">
-              <span class="t-label">Inversion Trap</span>
-              <span class="t-text">${item.trap}</span>
-            </div>
-          </div>
-        </div>
-      </div>`;
-    });
-    
-    roadmapTimeline.innerHTML = html;
-  }
-}

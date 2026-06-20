@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24-Month Roadmap | The Filmmaker's Grid</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="roadmap.css?v=1">
+</head>
+<body>
+
+  <!-- 3 AM Lockout Overlay -->
+  <div id="lockout-overlay" class="lockout-overlay" style="display:none;">
+    <div class="lockout-content">
+      <div class="lockout-icon">⚠️</div>
+      <h1>"Screen Glare at 3 AM</h1>
+      <h2>Dehydration Migraine</h2>
+      <h3>System Failure."</h3>
+      <p>Your inversion grid flagged this session. Interface locked until 6:00 AM.</p>
+      <p class="lockout-time" id="lockout-time"></p>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="roadmap-nav">
+    <a href="index.html" class="back-btn">
+      <span>←</span> Mandala Board
+    </a>
+    <div class="nav-title">24-Month Operational Roadmap</div>
+    <div class="nav-right">
+      <div class="progress-pill">
+        <span id="nav-progress-text">$0 / $250,000</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="roadmap-hero">
+    <div class="hero-badge">USC AIM — 24 MONTHS</div>
+    <h1>The <span class="gradient-text">Filmmaker's Engine</span></h1>
+    <p>₹2 Crore ($250,000 USD) net profit target. Engineering degree. No shortcuts.</p>
+
+    <!-- Revenue Progress Bar -->
+    <div class="revenue-tracker">
+      <div class="revenue-header">
+        <div>
+          <div class="revenue-label">TOTAL REVENUE LOGGED</div>
+          <div class="revenue-amount" id="revenue-display">$0</div>
+        </div>
+        <div class="revenue-target">
+          <div class="revenue-label">TARGET</div>
+          <div class="revenue-amount target">$250,000</div>
+        </div>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+        <div class="progress-bar-milestone" style="left: 28%">
+          <div class="milestone-dot"></div>
+          <div class="milestone-label">Y1<br/>$70k</div>
+        </div>
+        <div class="progress-bar-milestone" style="left: 100%">
+          <div class="milestone-dot gold"></div>
+          <div class="milestone-label">Y2<br/>$250k</div>
+        </div>
+      </div>
+      <div class="revenue-actions">
+        <input type="number" id="revenue-input" class="revenue-input" placeholder="Log payment (USD)..." min="0">
+        <button id="log-revenue-btn" class="log-revenue-btn">+ Log Payment</button>
+        <button id="reset-revenue-btn" class="reset-btn">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Year 1 -->
+  <section class="year-section" id="year1">
+    <div class="year-header year1-header">
+      <div class="year-badge">YEAR 1</div>
+      <div class="year-info">
+        <h2>The Foundation & Systems Leverage</h2>
+        <p>Bank <strong>$70,000 USD</strong> (₹58 Lakhs) in net profit</p>
+      </div>
+      <div class="year-strategy">
+        <span class="strategy-label">CORE STRATEGY</span>
+        Move from manual labor → creative direction using junior subcontractors
+      </div>
+    </div>
+
+    <div class="months-grid" id="months-grid-y1">
+
+      <!-- Month 1 -->
+      <div class="month-card" data-month="1">
+        <div class="month-header">
+          <div class="month-num">Month 1</div>
+          <div class="month-target">$400 / mo</div>
+          <button class="month-edit-btn" onclick="toggleEdit(this)">Edit</button>
+        </div>
+        <div class="month-title-display">Technical Positioning Reset</div>
+        <input class="month-title-input" style="display:none;" value="Technical Positioning Reset">
+
+        <div class="month-body">
+          <div class="month-section">
+            <div class="section-label learn-label">🧠 WHAT TO MASTER</div>
+            <ul class="month-list editable-list">
+              <li>Advanced retention graphics using expression loops in Adobe After Effects or programmatic frames in Remotion</li>
+              <li>Scripting retention hooks — study the first 5 seconds of top-tier educational tech channels</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label target-label">🎯 WHOM TO TARGET</div>
+            <ul class="month-list editable-list">
+              <li>Individual tech creators, AI educators, mid-tier B2B indie hackers (20k–100k subs) on X and YouTube</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label exec-label">⚡ EXECUTION STEPS</div>
+            <ul class="month-list editable-list">
+              <li>First 5 days: Build a 45-second Tech-Retention Reel using ECE concept (microprocessor pipeline) as subject</li>
+              <li>Locate 50 target creators. Send 3 manual, custom DMs/day pointing out a precise pacing flaw + offer a $50 Paid Micro-Trial</li>
+            </ul>
+          </div>
+          <div class="month-section inversion-section">
+            <div class="section-label inv-label">🚫 INVERSION TRAP</div>
+            <div class="inversion-trap editable-trap">Fake Self-Improvement / Tool Hoarding — Do not redesign your website or tweak Notion boards. Only cold outreach and creating the reel count as progress.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Month 2 -->
+      <div class="month-card" data-month="2">
+        <div class="month-header">
+          <div class="month-num">Month 2</div>
+          <div class="month-target">$2,000 / mo</div>
+          <button class="month-edit-btn" onclick="toggleEdit(this)">Edit</button>
+        </div>
+        <div class="month-title-display">Locking the First Retainers</div>
+        <input class="month-title-input" style="display:none;" value="Locking the First Retainers">
+
+        <div class="month-body">
+          <div class="month-section">
+            <div class="section-label learn-label">🧠 WHAT TO MASTER</div>
+            <ul class="month-list editable-list">
+              <li>High-Stakes Negotiation: Read "Never Split the Difference" by Chris Voss</li>
+              <li>Pitch recurring value packages instead of trading project hours for individual checks</li>
+              <li>Master high-quality audio mixing and vocal leveling presets</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label target-label">🎯 WHOM TO TARGET</div>
+            <ul class="month-list editable-list">
+              <li>Convert $50 micro-trial clients from Month 1 into permanent long-term retainers</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label exec-label">⚡ EXECUTION STEPS</div>
+            <ul class="month-list editable-list">
+              <li>After successful trial: send a single-page scope proposal for $1,000/month (8 short-form videos, concept scripting, dynamic tracking text, audio design)</li>
+              <li>Secure first 2 anchor retainer clients to build reliable MRR base layer</li>
+              <li>Launch "Filmmaker's Journal" YouTube channel — Video 1: cinematic essay balancing ECE labs with international clients</li>
+            </ul>
+          </div>
+          <div class="month-section inversion-section">
+            <div class="section-label inv-label">🚫 INVERSION TRAP</div>
+            <div class="inversion-trap editable-trap">The Low-Value Loop — Do not accept one-off video requests from clients who refuse multi-month retainers. One-off projects destroy your calendar planning.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Month 3 -->
+      <div class="month-card" data-month="3">
+        <div class="month-header">
+          <div class="month-num">Month 3</div>
+          <div class="month-target">$2,700 / mo</div>
+          <button class="month-edit-btn" onclick="toggleEdit(this)">Edit</button>
+        </div>
+        <div class="month-title-display">Breaking the Solo Bandwidth Bottleneck</div>
+        <input class="month-title-input" style="display:none;" value="Breaking the Solo Bandwidth Bottleneck">
+
+        <div class="month-body">
+          <div class="month-section">
+            <div class="section-label learn-label">🧠 WHAT TO MASTER</div>
+            <ul class="month-list editable-list">
+              <li>Write clear Standard Operating Procedures (SOPs) and creative briefs so someone else can replicate your editing style</li>
+              <li>Master cloud file automation via Google Drive or Dropbox for raw footage</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label target-label">🎯 WHOM TO TARGET</div>
+            <ul class="month-list editable-list">
+              <li>Secure 3rd retainer client ($1,000/mo) to deliberately push workload past personal bandwidth — forcing you to manage</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label exec-label">⚡ EXECUTION STEPS</div>
+            <ul class="month-list editable-list">
+              <li>Hire 1st Junior Subcontractor Editor from engineering college. Pay flat ₹25,000/month</li>
+              <li>Your role shifts: you write script hooks, set visual style guides, handle client comms. They cut timelines and tag assets</li>
+              <li>Upload YouTube Video 2: systems architecture breakdown</li>
+            </ul>
+          </div>
+          <div class="month-section inversion-section">
+            <div class="section-label inv-label">🚫 INVERSION TRAP</div>
+            <div class="inversion-trap editable-trap">Paralysis by Analysis — Do not waste time finding the "perfect" editor. Hire someone with solid baseline skills, give them your templates, teach pacing rules directly.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Months 4-6 -->
+      <div class="month-card phase-card" data-month="4">
+        <div class="month-header">
+          <div class="month-num">Months 4–6</div>
+          <div class="month-target">$5,000 / mo</div>
+          <button class="month-edit-btn" onclick="toggleEdit(this)">Edit</button>
+        </div>
+        <div class="month-title-display">Deploying the B2B Agency Engine</div>
+        <input class="month-title-input" style="display:none;" value="Deploying the B2B Agency Engine">
+
+        <div class="month-body">
+          <div class="month-section">
+            <div class="section-label learn-label">🧠 WHAT TO MASTER</div>
+            <ul class="month-list editable-list">
+              <li>B2B Corporate Copywriting: pitch content as a customer acquisition asset that generates pipeline revenue, not vanity views</li>
+              <li>LinkedIn Inbound Setup: optimize your profile as a clean B2B landing page</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label target-label">🎯 WHOM TO TARGET</div>
+            <ul class="month-list editable-list">
+              <li>Founders, CMOs, and marketing leads at seed-funded or Series A tech startups in AI, developer tools, and fintech</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label exec-label">⚡ EXECUTION STEPS</div>
+            <ul class="month-list editable-list">
+              <li>Rebrand admachi.com completely — strip unverified metrics, fill with detailed visual case studies showing retention graphs</li>
+              <li>Pivot outbound to LinkedIn. Send 5 targeted Video Audits/day via 90-second Loom walking founders through their drop-off points</li>
+              <li>Hire a freelance graphic animator for high-click-through thumbnails</li>
+            </ul>
+          </div>
+          <div class="month-section inversion-section">
+            <div class="section-label inv-label">🚫 INVERSION TRAP</div>
+            <div class="inversion-trap editable-trap">Talking About the Plan — Stop pitching your agency ideas to friends or online communities. Focus every communication unit on cold outbound video audits to decision-makers only.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Months 7-9 -->
+      <div class="month-card phase-card" data-month="7">
+        <div class="month-header">
+          <div class="month-num">Months 7–9</div>
+          <div class="month-target">$7,000 / mo</div>
+          <button class="month-edit-btn" onclick="toggleEdit(this)">Edit</button>
+        </div>
+        <div class="month-title-display">Building Core Operational Leverage</div>
+        <input class="month-title-input" style="display:none;" value="Building Core Operational Leverage">
+
+        <div class="month-body">
+          <div class="month-section">
+            <div class="section-label learn-label">🧠 WHAT TO MASTER</div>
+            <ul class="month-list editable-list">
+              <li>Financial Architecture: cash-flow tracking, operational margins, subcontractor payment timelines</li>
+              <li>Advanced Screenwriting: Read "Story" by Robert McKee. 20 minutes every morning on short film scripts</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label target-label">🎯 WHOM TO TARGET</div>
+            <ul class="month-list editable-list">
+              <li>Scale to 5 steady retainer accounts at avg $1,600/month each</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label exec-label">⚡ EXECUTION STEPS</div>
+            <ul class="month-list editable-list">
+              <li>Hire 2nd Subcontractor Editor — you are now fully removed from manual timeline cutting. Role: Creative Director, Script Architect, Lead Producer</li>
+              <li>Standardize client onboarding: Contract → Stripe Billing → Onboarding Form (automated sequence)</li>
+              <li>Maintain bi-weekly YouTube filmmaker journal uploads without exception</li>
+            </ul>
+          </div>
+          <div class="month-section inversion-section">
+            <div class="section-label inv-label">🚫 INVERSION TRAP</div>
+            <div class="inversion-trap editable-trap">System Fractures / Heavy Cognitive Stalls — If a client demands sudden scope changes outside the contract, do not absorb the work manually. Enforce clear boundaries or adjust billing immediately.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Months 10-12 -->
+      <div class="month-card phase-card" data-month="10">
+        <div class="month-header">
+          <div class="month-num">Months 10–12</div>
+          <div class="month-target">$10,000 / mo</div>
+          <button class="month-edit-btn" onclick="toggleEdit(this)">Edit</button>
+        </div>
+        <div class="month-title-display">Activating the Inbound Funnel</div>
+        <input class="month-title-input" style="display:none;" value="Activating the Inbound Funnel">
+
+        <div class="month-body">
+          <div class="month-section">
+            <div class="section-label learn-label">🧠 WHAT TO MASTER</div>
+            <ul class="month-list editable-list">
+              <li>Funnel Conversion: automated calendar scheduling systems with qualifying forms to filter leads before calls</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label target-label">🎯 WHOM TO TARGET</div>
+            <ul class="month-list editable-list">
+              <li>Inbound tech founders and digital creators discovering your brand organically via your YouTube portfolio</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label exec-label">⚡ EXECUTION STEPS</div>
+            <ul class="month-list editable-list">
+              <li>Optimize YouTube descriptions and LinkedIn profiles — direct all traffic to a single booking link requiring prospects to state their monthly marketing budget before a call</li>
+              <li>Maintain stable 6 retainer accounts managed by editing team</li>
+              <li>Review Year 1 accounts — confirm clean $70,000 USD milestone hit, cash reserves secured</li>
+            </ul>
+          </div>
+          <div class="month-section inversion-section">
+            <div class="section-label inv-label">🚫 INVERSION TRAP</div>
+            <div class="inversion-trap editable-trap">Dopamine Hijacking — Do not let early financial success convince you to slack on daily gym discipline or consistent sleep patterns. Keep your systems locked down.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Year 2 -->
+  <section class="year-section" id="year2">
+    <div class="year-header year2-header">
+      <div class="year-badge y2-badge">YEAR 2</div>
+      <div class="year-info">
+        <h2>Upgrading to High-Ticket B2B Accounts</h2>
+        <p>Bank <strong>$180,000 USD</strong> (₹1.5 Crore) in net profit</p>
+      </div>
+      <div class="year-strategy">
+        <span class="strategy-label">CORE STRATEGY</span>
+        Drop low-budget creators — pivot to high-ticket corporate, direct USC application films
+      </div>
+    </div>
+
+    <!-- Year 2 Pipeline Timeline -->
+    <div class="pipeline-timeline">
+      <div class="pipeline-step">
+        <div class="pipeline-dot"></div>
+        <div class="pipeline-label">Months 13–15</div>
+        <div class="pipeline-desc">$3,500+ Corporate Packages + Short Film 1</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-step">
+        <div class="pipeline-dot"></div>
+        <div class="pipeline-label">Months 16–18</div>
+        <div class="pipeline-desc">Full Automation + Final Script Drafts</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-step">
+        <div class="pipeline-dot"></div>
+        <div class="pipeline-label">Months 19–21</div>
+        <div class="pipeline-desc">USC Portfolio Short Film Direction</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-step">
+        <div class="pipeline-dot gold-dot"></div>
+        <div class="pipeline-label">Months 22–24</div>
+        <div class="pipeline-desc">Financial Proof + USC Application Submitted</div>
+      </div>
+    </div>
+
+    <div class="months-grid" id="months-grid-y2">
+
+      <!-- Months 13-15 -->
+      <div class="month-card y2-card" data-month="13">
+        <div class="month-header">
+          <div class="month-num">Months 13–15</div>
+          <div class="month-target">$13,000 / mo</div>
+          <button class="month-edit-btn" onclick="toggleEdit(this)">Edit</button>
+        </div>
+        <div class="month-title-display">Upgrading to High-Ticket Packages</div>
+        <input class="month-title-input" style="display:none;" value="Upgrading to High-Ticket Packages">
+
+        <div class="month-body">
+          <div class="month-section">
+            <div class="section-label learn-label">🧠 WHAT TO MASTER</div>
+            <ul class="month-list editable-list">
+              <li>Corporate Visual Directing: study visual pacing of high-end corporate product trailers and tech ads (Apple product launches)</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label target-label">🎯 WHOM TO TARGET</div>
+            <ul class="month-list editable-list">
+              <li>Mid-market, venture-funded B2B software enterprises requiring a comprehensive multi-platform video presence</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label exec-label">⚡ EXECUTION STEPS</div>
+            <ul class="month-list editable-list">
+              <li>Launch high-tier corporate package: complete digital video pipeline (B2B ad creatives, high-end product trailers, short-form automation) starting at $3,500/month</li>
+              <li>Close first 2 premium high-ticket clients — phase out lower-budget creator accounts</li>
+              <li>Utilize agency profits to shoot first polished narrative short film locally on a mobile setup, focus on visual composition</li>
+            </ul>
+          </div>
+          <div class="month-section inversion-section">
+            <div class="section-label inv-label">🚫 INVERSION TRAP</div>
+            <div class="inversion-trap editable-trap">The "Nobody Knows" Myth — Do not keep film projects private. Share short film production updates and behind-the-scenes challenges on YouTube to build authority openly.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Months 16-18 -->
+      <div class="month-card y2-card" data-month="16">
+        <div class="month-header">
+          <div class="month-num">Months 16–18</div>
+          <div class="month-target">$16,000 / mo</div>
+          <button class="month-edit-btn" onclick="toggleEdit(this)">Edit</button>
+        </div>
+        <div class="month-title-display">Automating the Agency Engine</div>
+        <input class="month-title-input" style="display:none;" value="Automating the Agency Engine">
+
+        <div class="month-body">
+          <div class="month-section">
+            <div class="section-label learn-label">🧠 WHAT TO MASTER</div>
+            <ul class="month-list editable-list">
+              <li>Operational Delegation: hands-off system management so your editing team runs autonomously without daily input</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label target-label">🎯 WHOM TO TARGET</div>
+            <ul class="month-list editable-list">
+              <li>Maintain premium portfolio: 4 creator retainers ($2,000/mo) + 3 high-ticket corporate accounts ($3,500/mo)</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label exec-label">⚡ EXECUTION STEPS</div>
+            <ul class="month-list editable-list">
+              <li>Set up AI & Second Brain infrastructure for onboarding, data pipelines, and client feedback tracking automatically</li>
+              <li>Isolate personal focus blocks — use free time to write and lock final narrative short film scripts for film school portfolio</li>
+            </ul>
+          </div>
+          <div class="month-section inversion-section">
+            <div class="section-label inv-label">🚫 INVERSION TRAP</div>
+            <div class="inversion-trap editable-trap">Continuous Reset Cycle — Do not alter service offerings or chase new niches this late in the game. Keep the business system uniform and stable.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Months 19-21 -->
+      <div class="month-card y2-card" data-month="19">
+        <div class="month-header">
+          <div class="month-num">Months 19–21</div>
+          <div class="month-target">$17,500 / mo</div>
+          <button class="month-edit-btn" onclick="toggleEdit(this)">Edit</button>
+        </div>
+        <div class="month-title-display">The Core Portfolio Production Sprint</div>
+        <input class="month-title-input" style="display:none;" value="The Core Portfolio Production Sprint">
+
+        <div class="month-body">
+          <div class="month-section">
+            <div class="section-label learn-label">🧠 WHAT TO MASTER</div>
+            <ul class="month-list editable-list">
+              <li>Cinematographic Direction & Leadership: scene composition, lighting design, staging mechanics to lead an on-set creative team</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label target-label">🎯 WHOM TO TARGET</div>
+            <ul class="month-list editable-list">
+              <li>Keep active agency machine running on autopilot, supported by senior subcontractor editors</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label exec-label">⚡ EXECUTION STEPS</div>
+            <ul class="month-list editable-list">
+              <li>Use stable agency profits to rent high-end camera equipment, secure unique locations, and direct primary USC application short film with a dedicated student crew</li>
+              <li>Ensure visual framing, sound engineering, and directorial style match elite global submission standards</li>
+            </ul>
+          </div>
+          <div class="month-section inversion-section">
+            <div class="section-label inv-label">🚫 INVERSION TRAP</div>
+            <div class="inversion-trap editable-trap">Giving Up on Bad Days — When production challenges or software bugs arise, do not break daily routines. Lean into Gym & Physical Body block to clear your mind and manage stress.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Months 22-24 -->
+      <div class="month-card y2-card finale-card" data-month="22">
+        <div class="month-header">
+          <div class="month-num">Months 22–24</div>
+          <div class="month-target gold-target">$19,000 / mo</div>
+          <button class="month-edit-btn" onclick="toggleEdit(this)">Edit</button>
+        </div>
+        <div class="month-title-display">The Final USC Application Submission</div>
+        <input class="month-title-input" style="display:none;" value="The Final USC Application Submission">
+
+        <div class="month-body">
+          <div class="month-section">
+            <div class="section-label learn-label">🧠 WHAT TO MASTER</div>
+            <ul class="month-list editable-list">
+              <li>Elite Level Essay Crafting: connect your ECE engineering logic directly to your creative cinematic vision in a compelling personal statement</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label target-label">🎯 WHOM TO TARGET</div>
+            <ul class="month-list editable-list">
+              <li>🎓 The University of Southern California (USC) Graduate Admissions Board</li>
+            </ul>
+          </div>
+          <div class="month-section">
+            <div class="section-label exec-label">⚡ EXECUTION STEPS</div>
+            <ul class="month-list editable-list">
+              <li>Finalize editing your visual application reel and narrative short films to a pristine master cut</li>
+              <li>Format personal statement essay: Backstory → Fall → Loss → Awakening → The Return</li>
+              <li>Consolidate liquid cash reserves in bank accounts — present clear financial self-sufficiency proof for US Embassy student visa</li>
+            </ul>
+          </div>
+          <div class="month-section inversion-section">
+            <div class="section-label inv-label">🚫 INVERSION TRAP</div>
+            <div class="inversion-trap editable-trap">Avoiding Cold Metrics — Review every file submission requirement carefully. Check aspect ratios, audio levels, and upload parameters precisely to ensure application passes preliminary intake filters.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="roadmap-footer">
+    <p>All edits are saved locally on this device.</p>
+    <a href="index.html" class="back-btn-footer">← Return to Mandala Board</a>
+  </footer>
+
+  <script src="roadmap.js?v=1"></script>
+</body>
+</html>

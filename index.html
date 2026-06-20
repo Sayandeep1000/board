@@ -14,11 +14,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <!-- Cache bust the CSS so it actually loads! -->
-  <link rel="stylesheet" href="style.css?v=23">
+  <link rel="stylesheet" href="style.css?v=22">
 </head>
 <body>
   
 
+  <div class="fab-container">
+    <a href="roadmap.html" id="roadmap-btn" title="24-Month Roadmap">🗺️</a>
+    <button id="analytics-btn" title="View Progress Analytics">📈</button>
+  </div>
 
   <div class="app-container">
     <header class="header">
@@ -90,26 +94,8 @@
     <source src="https://assets.mixkit.co/sfx/preview/mixkit-light-rain-loop-2393.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- FAB for Roadmap -->
-  <div class="fab-container">
-    <button id="roadmap-btn" title="View 24-Month Master Plan">🚀</button>
-  </div>
 
-  <!-- Roadmap Modal -->
-  <div class="roadmap-overlay" id="roadmap-overlay">
-    <div class="roadmap-modal" id="roadmap-modal">
-      <button class="modal-close" id="roadmap-close">&times;</button>
-      <div class="roadmap-header">
-        <h2>24-Month Master Plan</h2>
-        <p>The operational breakdown to reach $250k net profit and USC Application Submission.</p>
-      </div>
-      <div class="timeline" id="roadmap-timeline">
-        <!-- Rendered by app.js -->
-      </div>
-    </div>
-  </div>
-
-  <script type="module" src="app.js?v=26"></script>
+  <script type="module" src="app.js?v=22"></script>
   <script>
     // Register Service Worker for PWA
     if ('serviceWorker' in navigator) {

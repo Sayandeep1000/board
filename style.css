@@ -907,3 +907,110 @@ body {
     flex-direction: row;
   }
 }
+/* Roadmap Specific Styles */
+.timeline-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.roadmap-year-header {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.roadmap-year-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.6);
+}
+
+.roadmap-year-header h2 {
+  color: var(--accent-color);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.roadmap-year-header .objective,
+.roadmap-year-header .strategy {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+.roadmap-card {
+  position: relative;
+  background: var(--cell-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.roadmap-card:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.card-timeline-dot {
+  position: absolute;
+  left: -26px;
+  top: 30px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 150px;
+  bottom: 50px;
+  width: 2px;
+  background: rgba(255,255,255,0.1);
+  z-index: -1;
+}
+
+.roadmap-card h3 {
+  margin: 0 0 5px 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.card-target {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.card-preview {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,0.2) !important;
+  transform: translateY(-2px);
+}
