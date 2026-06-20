@@ -229,9 +229,76 @@ function checkLockout() {
   setInterval(tick, 1000);
 }
 
+// ── USC COUNTDOWN + VELOCITY ENGINE ──
+const USC_DEADLINE = new Date('2027-12-01T00:00:00'); // December 1, 2027
+const TOTAL_TARGET = 250000;
+
+function initUSCCountdown() {
+  function tick() {
+    const now = new Date();
+    const diff = USC_DEADLINE - now;
+
+    if (diff <= 0) {
+      document.getElementById('usc-months').textContent = '00';
+      document.getElementById('usc-days').textContent = '00';
+      document.getElementById('usc-hours').textContent = '00';
+      document.getElementById('usc-mins').textContent = '00';
+      document.getElementById('usc-secs').textContent = '00';
+      return;
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const totalDays    = Math.floor(totalSeconds / 86400);
+    const months       = Math.floor(totalDays / 30.44);
+    const remDays      = totalDays % 30;
+    const hours        = Math.floor((totalSeconds % 86400) / 3600);
+    const mins         = Math.floor((totalSeconds % 3600) / 60);
+    const secs         = totalSeconds % 60;
+
+    document.getElementById('usc-months').textContent = String(months).padStart(2, '0');
+    document.getElementById('usc-days').textContent   = String(remDays).padStart(2, '0');
+    document.getElementById('usc-hours').textContent  = String(hours).padStart(2, '0');
+    document.getElementById('usc-mins').textContent   = String(mins).padStart(2, '0');
+    document.getElementById('usc-secs').textContent   = String(secs).padStart(2, '0');
+
+    // ── Velocity Metric ──
+    const state    = loadState();
+    const logged   = state.revenue || 0;
+    const remaining = Math.max(0, TOTAL_TARGET - logged);
+    const perDay   = totalDays > 0 ? remaining / totalDays : 0;
+
+    // Days elapsed since project start (June 20, 2025 — today's effective start)
+    const START_DATE = new Date('2025-06-20T00:00:00');
+    const daysElapsed = Math.max(1, Math.floor((now - START_DATE) / 86400000));
+    const actualVelocity = logged / daysElapsed; // $ earned per day so far
+
+    document.getElementById('vel-remaining').textContent = '$' + remaining.toLocaleString('en-US', {maximumFractionDigits: 0});
+    document.getElementById('vel-days').textContent      = totalDays.toLocaleString();
+    document.getElementById('vel-per-day').textContent   = '$' + perDay.toFixed(0) + '/day';
+
+    const alertEl = document.getElementById('velocity-alert');
+    if (logged === 0) {
+      alertEl.className = 'velocity-alert';
+      alertEl.textContent = '';
+    } else if (actualVelocity >= perDay * 0.9) {
+      alertEl.className = 'velocity-alert on-track';
+      alertEl.textContent = `✅ On track — earning $${actualVelocity.toFixed(0)}/day avg vs $${perDay.toFixed(0)}/day required.`;
+    } else {
+      const gap = perDay - actualVelocity;
+      const clientsNeeded = Math.ceil(gap / 50); // assuming $50/day avg per client
+      alertEl.className = 'velocity-alert behind';
+      alertEl.textContent = `⚠️ Behind pace by $${gap.toFixed(0)}/day. Convert ${clientsNeeded} more client${clientsNeeded > 1 ? 's' : ''} or scale daily outreach.`;
+    }
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
+
 // ── INIT ──
 document.addEventListener('DOMContentLoaded', () => {
   initRevenueTracker();
+  initUSCCountdown();
   restoreCardData();
   checkLockout();
 });

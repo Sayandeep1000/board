@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="roadmap.css?v=2">
+  <link rel="stylesheet" href="roadmap.css?v=3">
 </head>
 <body>
 
@@ -71,6 +71,48 @@
         <input type="number" id="revenue-input" class="revenue-input" placeholder="Log payment (USD)..." min="0">
         <button id="log-revenue-btn" class="log-revenue-btn">+ Log Payment</button>
         <button id="reset-revenue-btn" class="reset-btn">Reset</button>
+      </div>
+    </div>
+
+    <!-- USC Countdown Widget -->
+    <div class="usc-widget">
+      <div class="usc-countdown-block">
+        <div class="usc-label">⏱ TIME TO USC APPLICATION</div>
+        <div class="usc-timer" id="usc-timer">
+          <div class="usc-unit"><span id="usc-months">--</span><small>months</small></div>
+          <div class="usc-sep">:</div>
+          <div class="usc-unit"><span id="usc-days">--</span><small>days</small></div>
+          <div class="usc-sep">:</div>
+          <div class="usc-unit"><span id="usc-hours">--</span><small>hrs</small></div>
+          <div class="usc-sep">:</div>
+          <div class="usc-unit"><span id="usc-mins">--</span><small>min</small></div>
+          <div class="usc-sep">:</div>
+          <div class="usc-unit"><span id="usc-secs">--</span><small>sec</small></div>
+        </div>
+        <div class="usc-deadline">Target: December 1, 2027</div>
+      </div>
+
+      <div class="usc-divider"></div>
+
+      <div class="usc-velocity-block">
+        <div class="usc-label">📈 REVENUE VELOCITY REQUIRED</div>
+        <div class="velocity-row">
+          <div class="velocity-stat">
+            <div class="velocity-value" id="vel-remaining">$250,000</div>
+            <div class="velocity-key">REMAINING</div>
+          </div>
+          <div class="velocity-op">÷</div>
+          <div class="velocity-stat">
+            <div class="velocity-value" id="vel-days">---</div>
+            <div class="velocity-key">DAYS LEFT</div>
+          </div>
+          <div class="velocity-op">=</div>
+          <div class="velocity-stat highlight">
+            <div class="velocity-value" id="vel-per-day">---</div>
+            <div class="velocity-key">NEEDED / DAY</div>
+          </div>
+        </div>
+        <div class="velocity-alert" id="velocity-alert"></div>
       </div>
     </div>
   </header>
@@ -528,6 +570,6 @@
     <a href="index.html" class="back-btn-footer">← Return to Mandala Board</a>
   </footer>
 
-  <script src="roadmap.js?v=1"></script>
+  <script src="roadmap.js?v=2"></script>
 </body>
 </html>
